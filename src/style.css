@@ -1,0 +1,44 @@
+.container {
+    padding-top: 50px;
+}
+
+.swap-container {
+    margin-left: 25%;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.swap-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #80804f;
+    color: white;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.form-control {
+    padding: 25px 10px;
+    background-color: #aaaa71;
+    border: 1px solid #b5b58400;
+}
+
+.token-info {
+    padding: 0 25px;
+    flex: 1;
+    align-self: center;
+}
+
+.token-info:hover {
+    cursor: pointer;
+}
+
+.token-amount {
+    padding: 10px;
+    background-color: #aaaa71;
+    flex: 3;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+}

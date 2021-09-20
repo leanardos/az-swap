@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Title</title>
+    <title>AZ Swap</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
@@ -13,15 +13,61 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Welcome</h1>
-      </div>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">AZ Swap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto"> 
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <button id="login_buton" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Connect with Metamask</button>
+        </div>
+      </nav>
     <div class="container">
-        <button id="login_button">Sign in with MetaMask</button>
+        <div class="row">
+            <div class="col col-md-6 offset-md-3 swap-container">
+                <h3>Swap</h3>
+                <div class="swap-box">
+                    <div id="" class="token-info">ETH</div>
+                    <div class="token-amount">
+                        <input class="number form-control" placeholder="0.0" id="from_amount">
+                    </div>
+                </div>
+                
+                <div class="swap-box">
+                    <div class="token-info">ETH</div>
+                    <div class="token-amount">
+                        <input class="number form-control" placeholder="0.0" id="from_amount">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>
