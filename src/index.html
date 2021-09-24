@@ -10,6 +10,9 @@
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
@@ -32,42 +35,41 @@
         <div class="row">
             <div class="col col-md-6 offset-md-3 swap-container">
                 <h3>Swap</h3>
-                <div class="swap-box">
-                    <div id="" class="token-info">ETH</div>
-                    <div class="token-amount">
-                        <input class="number form-control" placeholder="0.0" id="from_amount">
+                <div id="form">
+                    <div class="swap-box">
+                        <div id="from_token_select" class="token-info token-select">ETH</div>
+                        <div class="token-amount">
+                            <input class="number form-control" placeholder="0.0" id="from_amount">
+                        </div>
                     </div>
-                </div>
-                
-                <div class="swap-box">
-                    <div class="token-info">ETH</div>
-                    <div class="token-amount">
-                        <input class="number form-control" placeholder="0.0" id="from_amount">
+                    
+                    <div class="swap-box">
+                        <div id="to_token_select" class="token-info token-select">ETH</div>
+                        <div class="token-amount">
+                            <input class="number form-control" placeholder="0.0" id="from_amount">
+                        </div>
                     </div>
+                    <button class="btn btn-large btn-primary btn-block" id="swap_button">Swap</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+    <div class="modal" tabindex="-1" role="dialog" id="tokens_menu">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select token</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_menu">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <div id="token_list"></div>                  
+                </div>
             </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>

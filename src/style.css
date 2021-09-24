@@ -1,5 +1,36 @@
+* {
+    font-family: 'Roboto', sans-serif;;
+}
+
+.form-control {
+    font-weight: 600;
+}
+
+.form-control::placeholder {
+    color: rgb(209, 209, 209);
+    opacity: 1;
+    font-size: 18px;
+}
+
+.form-control:focus::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.form-control:focus {
+    color: #fff;
+    background-color: #80804f;
+    border-color: #80804f;
+    outline: 0;
+    font-size: 18px;
+    box-shadow: none;
+}
+
 .container {
-    padding-top: 50px;
+    padding: 120px;
+}
+
+.header-text {
+    color: #aaaa50;
 }
 
 .swap-container {
@@ -7,12 +38,13 @@
     background-color: beige;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 80px #c8c881;
 }
 
 .swap-box {
     display: flex;
     justify-content: space-between;
-    background-color: #80804f;
+    background-color: #aaaa71;
     color: white;
     margin: 10px 0;
     border-radius: 10px;
@@ -20,7 +52,7 @@
 
 .form-control {
     padding: 25px 10px;
-    background-color: #aaaa71;
+    background-color: #80804f;
     border: 1px solid #b5b58400;
 }
 
@@ -32,13 +64,44 @@
 
 .token-info:hover {
     cursor: pointer;
+    background-color: #d8d884;
 }
 
 .token-amount {
-    padding: 10px;
     background-color: #aaaa71;
     flex: 3;
     margin: 10px;
-    border-radius: 10px;
-    color: white;
+    border-radius: 5px;
+    color: rgb(5, 5, 5);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #d0d04a;
+    border-color: #80804f;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #80804f;
+}
+
+#token_list {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.token-row {
+    cursor: pointer;
+}
+
+.token-row:hover {
+    background-color: #d0d04a;
+}
+
+.token-logo {
+    width: 40px;
+    padding: 5px;
 }
