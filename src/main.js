@@ -12,4 +12,44 @@ async function login() {
     }
 }
 
+function openTokensMenu() {
+    document.getElementById('tokens_menu').style.display = "block";
+}
+
+function closeTokensMenu() {
+    document.getElementById('tokens_menu').style.display = "none";
+}
+
+async function init() {
+    await Moralis.initPlugins();
+    await Moralis.enable();
+    await getSupportedTokens();
+}
+
+async function getSupportedTokens() {
+    const result = await Moralis.Plugins.oneInch.getSupportedTokens({
+      chain: 'eth', // The blockchain you want to use (eth/bsc/polygon)
+    });
+
+    const parentDiv = document.getElementById("token_list");
+    const tokens = result.tokens;
+    for(const address in tokens)
+    {
+        const token = tokens[address];
+        const tokenRowDiv = document.createElement("div");
+        tokenRowDiv.className = "token-row";
+        const html = `
+        <img class="token-logo" src="${token.logoURI}">
+        <span class="token-symbol">${token.symbol}</span>
+        `
+        tokenRowDiv.innerHTML = html;
+        parentDiv.appendChild(tokenRowDiv);
+    }
+    console.log(tokens);
+}
+
+init();
+document.getElementById("from_token_select").onclick = openTokensMenu;
+document.getElementById("close_menu").onclick = closeTokensMenu;
+
 document.getElementById("login_button").onclick = login;
