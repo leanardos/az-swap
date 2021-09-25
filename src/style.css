@@ -26,7 +26,7 @@
 }
 
 .container {
-    padding: 120px;
+    padding: 50px;
 }
 
 .header-text {
@@ -44,9 +44,11 @@
 .swap-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #aaaa71;
     color: white;
     margin: 10px 0;
+    padding-left: 10px;
     border-radius: 10px;
 }
 
@@ -104,4 +106,35 @@
 .token-logo {
     width: 40px;
     padding: 5px;
+}
+
+.token-search {
+    background: beige;
+    width: 100% !important;
+    margin: 7px;
+    color: #80804f;
+}
+
+.modal-dialog .form-control::placeholder {
+    color: rgb(155, 155, 155);
+    opacity: 1;
+    font-size: 18px;
+}
+
+.modal-dialog .form-control:focus::placeholder {
+    color: #80804f;
+}
+
+.modal-dialog .form-control:focus {
+    color: #80804f;
+    background-color: beige;
+    border-color: #80804f;
+    outline: 0;
+    font-size: 18px;
+    box-shadow: none;
+}
+
+#from_token_logo {
+    width: 40px;
+    height: 40px;
 }

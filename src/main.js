@@ -1,6 +1,10 @@
 Moralis.initialize("JinbuFRfNtDG80ckeMEJGzZdPYMMJukhb2X89W5u"); // Application id from moralis.io
 Moralis.serverURL = "https://bziqvkacfng7.grandmoralis.com:2053/server"; //Server url from moralis.io
 
+let currentTrade = {};
+let currentSelectSide;
+let tokens;
+
 async function login() {
     try {
         currentUser = Moralis.User.current();
@@ -12,7 +16,8 @@ async function login() {
     }
 }
 
-function openTokensMenu() {
+function openTokensMenu(side) {
+    currentSelectSide = side;
     document.getElementById('tokens_menu').style.display = "block";
 }
 
@@ -32,24 +37,39 @@ async function getSupportedTokens() {
     });
 
     const parentDiv = document.getElementById("token_list");
-    const tokens = result.tokens;
+    tokens = result.tokens;
+    
     for(const address in tokens)
     {
         const token = tokens[address];
         const tokenRowDiv = document.createElement("div");
+        tokenRowDiv.setAttribute("data-address", address);
         tokenRowDiv.className = "token-row";
         const html = `
         <img class="token-logo" src="${token.logoURI}">
         <span class="token-symbol">${token.symbol}</span>
         `
+        tokenRowDiv.onclick = selectToken;
         tokenRowDiv.innerHTML = html;
         parentDiv.appendChild(tokenRowDiv);
     }
     console.log(tokens);
 }
 
-init();
-document.getElementById("from_token_select").onclick = openTokensMenu;
-document.getElementById("close_menu").onclick = closeTokensMenu;
+function selectToken() {
+    let address = event.target.getAttribute("data-address");
+    currentTrade[currentSelectSide] = tokens[address]
+    console.log(currentTrade);
+    renderSelectedToken(tokens[address]);
+    closeTokensMenu();
+}
 
+function renderSelectedToken(token) {
+    const fromTokenLogo = document.getElementById("from_token_logo");
+    fromTokenLogo.src = token.logoURI;
+}
+
+init();
+document.getElementById("from_token_select").onclick = (() => { openTokensMenu("from") });
+document.getElementById("close_menu").onclick = closeTokensMenu;
 document.getElementById("login_button").onclick = login;
