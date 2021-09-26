@@ -43,21 +43,19 @@ async function getSupportedTokens() {
     {
         const token = tokens[address];
         const tokenRowDiv = document.createElement("div");
-        tokenRowDiv.setAttribute("data-address", address);
         tokenRowDiv.className = "token-row";
         const html = `
         <img class="token-logo" src="${token.logoURI}">
         <span class="token-symbol">${token.symbol}</span>
         `
-        tokenRowDiv.onclick = selectToken;
+        tokenRowDiv.onclick = (() => { selectToken(address) });
         tokenRowDiv.innerHTML = html;
         parentDiv.appendChild(tokenRowDiv);
     }
     console.log(tokens);
 }
 
-function selectToken() {
-    let address = event.target.getAttribute("data-address");
+function selectToken(address) {
     currentTrade[currentSelectSide] = tokens[address]
     console.log(currentTrade);
     renderSelectedToken(tokens[address]);
@@ -65,8 +63,8 @@ function selectToken() {
 }
 
 function renderSelectedToken(token) {
-    const fromTokenLogo = document.getElementById("from_token_logo");
-    fromTokenLogo.src = token.logoURI;
+    document.getElementById("from_token_logo").src = token.logoURI;
+    document.getElementById("from_token_symbol").innerHTML = token.symbol;
 }
 
 init();

@@ -26,7 +26,7 @@
 }
 
 .container {
-    padding: 50px;
+    padding: 100px;
 }
 
 .header-text {
@@ -48,7 +48,6 @@
     background-color: #aaaa71;
     color: white;
     margin: 10px 0;
-    padding-left: 10px;
     border-radius: 10px;
 }
 
@@ -59,9 +58,13 @@
 }
 
 .token-info {
-    padding: 0 25px;
+    display: flex;
     flex: 1;
     align-self: center;
+
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .token-info:hover {
@@ -135,6 +138,10 @@
 }
 
 #from_token_logo {
-    width: 40px;
     height: 40px;
+    padding-right: 10px;
+}
+
+#from_token_symbol {
+    align-self: center;
 }
