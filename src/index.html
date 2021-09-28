@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark" class="navbar">
         <a class="navbar-brand" href="#">AZ Swap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
@@ -39,17 +39,20 @@
                     <div class="swap-box">
                         <div id="from_token_select" class="token-info token-select">
                           <img id="from_token_logo">
-                          <span id="from_token_symbol"></span>
+                          <span id="from_token_symbol">Select token</span>
                         </div>
                         <div class="token-amount">
-                            <input class="number form-control" placeholder="0.0" id="from_amount">
+                            <input type="numeric" class="number form-control" placeholder="0.0" id="from_amount">
                         </div>
                     </div>
                     
                     <div class="swap-box">
-                        <div id="to_token_select" class="token-info token-select">ETH</div>
+                      <div id="to_token_select" class="token-info token-select">
+                        <img id="to_token_logo">
+                        <span id="to_token_symbol">Select token</span>
+                      </div>
                         <div class="token-amount">
-                            <input class="number form-control" placeholder="0.0" id="from_amount">
+                            <input type="numeric" class="number form-control" placeholder="0.0" id="to_amount">
                         </div>
                     </div>
                     <button class="btn btn-large btn-primary btn-block" id="swap_button">Swap</button>

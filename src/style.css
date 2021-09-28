@@ -2,6 +2,20 @@
     font-family: 'Roboto', sans-serif;;
 }
 
+body {
+    background: rgb(0,127,145);
+    background: radial-gradient(circle, rgba(0,127,145,1) 0%, rgba(13,3,45,1) 100%); 
+}
+
+.navbar {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.445);
+}
+
+.navbar-brand {
+    color: white;
+}
+
 .form-control {
     font-weight: 600;
 }
@@ -18,8 +32,8 @@
 
 .form-control:focus {
     color: #fff;
-    background-color: #80804f;
-    border-color: #80804f;
+    background-color: #498fa7;
+    border-color: #71a2b3;
     outline: 0;
     font-size: 18px;
     box-shadow: none;
@@ -35,25 +49,27 @@
 
 .swap-container {
     margin-left: 25%;
-    background-color: beige;
+    background-color: #03192f;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 80px #c8c881;
+    box-shadow: 0 0 80px #2894be;
+    color: #b1ecff;
 }
 
 .swap-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #aaaa71;
+    background-color: #155f77;
     color: white;
     margin: 10px 0;
     border-radius: 10px;
 }
 
 .form-control {
+    color: white;
     padding: 25px 10px;
-    background-color: #80804f;
+    background-color: #71a2b3;
     border: 1px solid #b5b58400;
 }
 
@@ -65,11 +81,14 @@
     margin-left: 10px;
     padding: 5px;
     border-radius: 5px;
+
+    width: 120px;
+    min-width: 120px;
 }
 
 .token-info:hover {
     cursor: pointer;
-    background-color: #d8d884;
+    background-color: #5099c9;
 }
 
 .token-amount {
@@ -77,20 +96,25 @@
     flex: 3;
     margin: 10px;
     border-radius: 5px;
-    color: rgb(5, 5, 5);
+    color: rgb(255, 255, 255);
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #d0d04a;
-    border-color: #80804f;
+    background-color: #71a2b3;
+    border-color: rgb(228, 228, 217);
     font-weight: 600;
     font-size: 22px;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #80804f;
+    background-color: #3e859c;
+}
+
+.btn-primary:active {
+    color: #fff;
+    background-color: #0a2044;
 }
 
 #token_list {
@@ -103,7 +127,7 @@
 }
 
 .token-row:hover {
-    background-color: #d0d04a;
+    background-color: #71a2b3;
 }
 
 .token-logo {
@@ -112,10 +136,10 @@
 }
 
 .token-search {
-    background: beige;
+    background: rgb(213, 238, 248);
     width: 100% !important;
     margin: 7px;
-    color: #80804f;
+    color: #5099c9;
 }
 
 .modal-dialog .form-control::placeholder {
@@ -125,23 +149,26 @@
 }
 
 .modal-dialog .form-control:focus::placeholder {
-    color: #80804f;
+    color: #87e1ec;
 }
 
 .modal-dialog .form-control:focus {
-    color: #80804f;
-    background-color: beige;
-    border-color: #80804f;
+    color: #62a9c5;
+    background-color: rgb(98, 171, 194);
+    border-color: #69c8e0;
     outline: 0;
     font-size: 18px;
     box-shadow: none;
 }
 
-#from_token_logo {
+#from_token_logo, #to_token_logo {
     height: 40px;
     padding-right: 10px;
 }
 
-#from_token_symbol {
+#from_token_symbol, #to_token_symbol {
     align-self: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
