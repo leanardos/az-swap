@@ -58,16 +58,41 @@ async function getSupportedTokens() {
 function selectToken(address) {
     currentTrade[currentSelectSide] = tokens[address]
     console.log(currentTrade);
-    renderSelectedToken(tokens[address]);
+    renderSelectedToken();
     closeTokensMenu();
 }
 
-function renderSelectedToken(token) {
-    document.getElementById("from_token_logo").src = token.logoURI;
-    document.getElementById("from_token_symbol").innerHTML = token.symbol;
+function renderSelectedToken() {
+    if(currentTrade.from) {
+        document.getElementById("from_token_logo").src = currentTrade.from.logoURI;
+        document.getElementById("from_token_symbol").innerHTML = currentTrade.from.symbol;
+    }
+    if(currentTrade.to) {
+        document.getElementById("to_token_logo").src = currentTrade.to.logoURI;
+        document.getElementById("to_token_symbol").innerHTML = currentTrade.to.symbol;
+    }
 }
+
+
+let typingTimer;                
+let amountTypingInterval = 3000;  
+let myInput = document.getElementById("from_amount");
+
+myInput.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput.value) {
+        typingTimer = setTimeout(getQuote, amountTypingInterval);
+    }
+});
+
+function getQuote () {
+    // call api
+}
+
+
 
 init();
 document.getElementById("from_token_select").onclick = (() => { openTokensMenu("from") });
+document.getElementById("to_token_select").onclick = (() => { openTokensMenu("to") });
 document.getElementById("close_menu").onclick = closeTokensMenu;
 document.getElementById("login_button").onclick = login;
