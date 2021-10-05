@@ -75,18 +75,37 @@ function renderSelectedToken() {
 
 
 let typingTimer;                
-let amountTypingInterval = 3000;  
-let myInput = document.getElementById("from_amount");
+let amountTypingInterval = 2000;  
+let from_amount = document.getElementById("from_amount");
+let to_amount = document.getElementById("to_amount");
 
-myInput.addEventListener('keyup', () => {
+from_amount.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
-    if (myInput.value) {
-        typingTimer = setTimeout(getQuote, amountTypingInterval);
+    if (from_amount.value) {
+        typingTimer = setTimeout((() => { getQuote(from_amount.value) }), amountTypingInterval);
     }
 });
 
-function getQuote () {
-    // call api
+async function getQuote (value) {
+    // console.log(currentTrade[currentSelectSide], value);
+
+    if (!currentTrade.from || !currentTrade.to || !value)
+    {
+        return;
+    }
+
+    let amount = Number(Moralis.Units.ETH(value));
+
+    console.log(amount);
+    const quote = await Moralis.Plugins.oneInch.quote({
+        chain: 'eth', // The blockchain you want to use (eth/bsc/polygon)
+        fromTokenAddress: currentTrade.from.address, // The token you want to swap
+        toTokenAddress: currentTrade.to.address, // The token you want to receive
+        amount: value,
+    });
+    console.log(quote);
+    to_amount.value = quote.toTokenAmount;
+
 }
 
 
