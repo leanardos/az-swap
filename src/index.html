@@ -28,7 +28,7 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <button id="login_buton" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Connect with Metamask</button>
+          <button onclick="login()" id="login_button" class="btn btn-outline-primary my-2 my-sm-0">Connect with Metamask</button>
         </div>
       </nav>
     <div class="container">
@@ -55,7 +55,8 @@
                             <input type="numeric" class="number form-control" placeholder="0.0" id="to_amount">
                         </div>
                     </div>
-                    <button class="btn btn-large btn-primary btn-block" id="swap_button">Swap</button>
+                    <div>Estimated Gas: <span id="estimated_gas"></span></div>
+                    <button disabled onclick="trySwap()" class="btn btn-large btn-primary btn-block" id="swap_button">Swap</button>
                 </div>
             </div>
         </div>
